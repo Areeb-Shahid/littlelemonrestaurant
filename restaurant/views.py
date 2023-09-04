@@ -18,14 +18,11 @@ def msg(request):
 def index(request):
     return render(request, 'index.html', {})
 
-
-@permission_classes([IsAuthenticated])
 class MenuItemsView(generics.ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
 
-@permission_classes([IsAuthenticated])
 class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
